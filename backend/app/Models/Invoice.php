@@ -15,4 +15,9 @@ class Invoice extends Model
         'product_description',
         'price',
     ];
+
+    public function user()
+    {
+        return $this->hasOne(User::class, 'id', 'user_id');
+    }
 }

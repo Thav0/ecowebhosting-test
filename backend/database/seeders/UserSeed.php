@@ -22,17 +22,20 @@ class UserSeed extends Seeder
             array(
                 'name' => 'test-1',
                 'email' => 'test1@test.com',
-                'password' => Hash::make(Str::random(10))
+                'password' => Hash::make(Str::random(10)),
+                'created_at' => now()
             ),
             array(
                 'name' => 'test-2',
                 'email' => 'test2@test.com',
-                'password' => Hash::make(Str::random(10))
+                'password' => Hash::make(Str::random(10)),
+                'created_at' => now()
             ),
             array(
                 'name' => 'test-3',
                 'email' => 'test3@test.com',
-                'password' => Hash::make(Str::random(10))
+                'password' => Hash::make(Str::random(10)),
+                'created_at' => now()
             )
         );
 
