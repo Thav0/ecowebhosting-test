@@ -17,9 +17,9 @@ class UserController extends Controller
 
   public function index()
   {
-    $questions = $this->repository->getAll();
+    $users = $this->repository->getAll();
 
-    return response($questions);
+    return response($users);
   }
 
   public function store(UserStoreRequest $request)
@@ -59,8 +59,8 @@ class UserController extends Controller
 
   public function show(int $id)
   {
-    $question = $this->repository->getById($id);
+    $user = $this->repository->getById($id);
 
-    return response($question);
+    return response($user);
   }
 }

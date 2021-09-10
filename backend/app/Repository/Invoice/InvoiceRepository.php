@@ -33,5 +33,17 @@ class InvoiceRepository implements InvoiceRepositoryInterface
 
   public function getById(int $id)
   {
+    try {
+      $invoice = Invoice::with('user')->find($id);
+
+      if (!$invoice) {
+        return array('message' => 'Any invoice was found');
+      }
+
+      return $invoice;
+    } catch (\Throwable $th) {
+      throw $th;
+      report($th);
+    }
   }
 }

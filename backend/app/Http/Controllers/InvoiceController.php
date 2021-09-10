@@ -36,8 +36,8 @@ class InvoiceController extends Controller
 
     public function show(int $id)
     {
-        $question = $this->repository->getById($id);
+        $invoice = $this->repository->getById($id);
 
-        return response()->json($question);
+        return response()->json($invoice);
     }
 }
