@@ -35,7 +35,11 @@ class UserRepository implements UserRepositoryInterface
         throw new Error('User not found!');
       }
 
-      $user->save($request->validated());
+      $user->name = $request->name;
+      $user->email = $request->email;
+      $user->password = $request->password;
+
+      $user->save();
 
       return $user;
     } catch (\Throwable $th) {
