@@ -30,7 +30,7 @@ class UserController extends Controller
       return response()->json(['message' => 'User created!'], 201);
     } catch (\Throwable $th) {
 
-      return response('Failed to create new user', 400);
+      return response($th->getMessage(), 400);
     }
   }
 

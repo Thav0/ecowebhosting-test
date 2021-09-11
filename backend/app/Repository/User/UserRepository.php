@@ -13,9 +13,13 @@ class UserRepository implements UserRepositoryInterface
 
   public function create(UserStoreRequest $request)
   {
-    $request->validate();
+    $userStoreRequest = $request->validated();
+
+    // Hash the password
+    $userStoreRequest['password'] = Hash::make($userStoreRequest['password']);
+
     try {
-      User::create($request->validated());
+      User::create($userStoreRequest);
     } catch (\Throwable $th) {
       throw $th;
       report($th);
