@@ -15,9 +15,7 @@ class InvoiceSeed extends Seeder
      */
     public function run()
     {
-        DB::statement('SET FOREIGN_KEY_CHECKS=0;');
-        Invoice::truncate();
-        DB::statement('SET FOREIGN_KEY_CHECKS=1;');
+        DB::table('invoices')->delete();
 
         $invoices = array(
             array(
