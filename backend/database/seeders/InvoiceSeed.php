@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use App\Models\Invoice;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class InvoiceSeed extends Seeder
 {
@@ -14,7 +15,9 @@ class InvoiceSeed extends Seeder
      */
     public function run()
     {
+        DB::statement('SET FOREIGN_KEY_CHECKS=0;');
         Invoice::truncate();
+        DB::statement('SET FOREIGN_KEY_CHECKS=1;');
 
         $invoices = array(
             array(
